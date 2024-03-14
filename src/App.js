@@ -20,11 +20,15 @@ function App() {
 
   return (
     <div className="App">
+      <div className="bakery-items">
       <h1>My Bakery</h1>
+        <div className="bakery-items-container">
 
       {bakeryData.map((item, index) => (
         <BakeryItem key={index} item={item} addToCart={addToCart} /> // Using BakeryItem component
       ))}
+        </div>
+      </div>
 
       <div className="Cart">
         <h2>Cart</h2>

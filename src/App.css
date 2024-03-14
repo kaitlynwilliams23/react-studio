@@ -5,6 +5,7 @@
     margin: 0 auto;
     padding: 20px;
     max-width: 800px;
+    display: flex; 
   }
   
   h1 {
@@ -46,6 +47,8 @@
   
   .Cart {
     margin-top: 20px;
+    width: 500px; /* Adjust width as needed */
+    margin-left: 20px; /* Adjust margin as needed */
   }
   
   .Cart h2 {
@@ -59,5 +62,15 @@
   
   .Cart li {
     margin-bottom: 5px;
+  }
+  
+  /* Additional styling for better appearance */
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  p {
+    margin-top: 20px;
   }
   
