@@ -10,35 +10,32 @@ bakeryData.forEach((item) => {
 /* ############################################################## */
 
 function App() {
-  // TODO: use useState to create a state variable to hold the state of the cart
-  /* add your cart state code here */
+  const [cart, setCart] = useState([]); // State variable to hold the cart items
 
-  const [cart, setCart] = useState(0)
-  const inc = () => {setCart + bakeryData.price}
+  // Function to add an item to the cart
   const addToCart = (item) => {
     setCart([...cart, item]); // Adding the new item to the cart
   };
+  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
   return (
     <div className="App">
-      <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
+      <h1>My Bakery</h1>
 
-      {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-        <p key={index}>
-        <button onClick={() => addToCart(item)}>Add to Cart</button>
-        {item.name}
-      </p> // replace with BakeryItem component
+      {bakeryData.map((item, index) => (
+        <BakeryItem key={index} item={item} addToCart={addToCart} /> // Using BakeryItem component
       ))}
 
-      <div>
+      <div className="Cart">
         <h2>Cart</h2>
         <ul>
           {cart.map((item, index) => (
-            <li key={index}>{item.name}</li>
+          <li key={index}>
+            {item.name} - {item.price}
+          </li>
           ))}
         </ul>
-        {/* TODO: render a list of items in the cart */
-        bakeryData.name}
+        <p>Total: ${totalPrice.toFixed(2)}</p> {/* Display total price */}
       </div>
     </div>
   );
